@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {%from "_macros.html" import render_firld%}
+
+    <div class="container">
+        <div class="row">
+            <a href="/insertarMaestro" class="btn btn-success"><i class="icon-plus icon-white"></i>Agregar</a>
+            <table class="table table">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>CURP</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for maestros in resultset%}
+                <tr>
+                    <td>{{maestros[1]}}</td>
+                    <td>{{maestros[2]}}</td>
+                    <td>{{maestros[3]}}</td>
+                    <td>{{maestros[5]}}</td>
+                    <td>{{maestros[4]}}</td>
+                    <td>{{maestros[6]}}</td>
+                    <td><a href="eliminarMaestro?id={{maestros[0]}}"
+                        class="btn btn-danger"><i class="icon-remove icon-white"></i>
+                     Eliminar</a></td>
+                     <td><a href="modificarMaestro?id={{maestros[0]}}"
+                        class="btn btn-warning"><i class="icon-pencil icon-white"></i>
+                     Modificar</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

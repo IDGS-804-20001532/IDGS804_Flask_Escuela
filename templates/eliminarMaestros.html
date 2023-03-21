@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {%from "_macros.html" import render_firld%}
+
+    <div class="container">
+        <div class="row">
+            <form name="sent" action="/eliminarMaestro" id="form1" method="POST">
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls" hidden>
+                        {{render_firld(form.id,class='form-control' )}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_firld(form.nombre,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_firld(form.apaterno,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_firld(form.amaterno,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_firld(form.curp,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_firld(form.email,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_firld(form.telefono,class='form-control')}}
+                    </div>
+                </div>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                <input type="submit" class="btn btn-danger" id="reg-alum" name="eliminar" value="Eliminar"/>
+                <a href="ABCompletoMaestros" class="btn btn-success"><i class="icon-pencil icon-white"></i>Regresar</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
